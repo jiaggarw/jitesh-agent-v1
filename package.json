@@ -7,4 +7,10 @@
   "dependencies": {
     "openclaw": "latest"
   }
+  "channels": {
+  "telegram": {
+    "enabled": true,
+    "botToken": (process.env.TELEGRAM_BOT_TOKEN||'').trim(),
+    "polling": true
+  }
 }
