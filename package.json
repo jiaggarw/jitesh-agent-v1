@@ -2,7 +2,7 @@
   "name": "jitesh-agent",
   "version": "1.0.0",
   "scripts": {
-    "start": "node -e \"const fs=require('fs'); fs.mkdirSync('/tmp/openclaw', { recursive: true }); const config={gateway:{port:process.env.PORT||7860,bind:'0.0.0.0',auth:{token:'growthops'}},channels:{telegram:{enabled:true,botToken:(process.env.TELEGRAM_BOT_TOKEN||'').trim(),authorizedUsers:[parseInt((process.env.MY_TELEGRAM_ID||'0').trim(), 10)]}},models:{providers:{google:{apiKey:(process.env.GEMINI_API_KEY||'').trim(),baseUrl:'https://generativelanguage.googleapis.com',models:[{id:'gemini-2.5-pro',name:'Gemini 2.5 Pro'}]}}}}; fs.writeFileSync('/tmp/openclaw/openclaw.json', JSON.stringify(config));\" && OPENCLAW_CONFIG_PATH=/tmp/openclaw/openclaw.json openclaw gateway run --allow-unconfigured"
+    "start": "node -e \"const fs=require('fs'); fs.mkdirSync('/tmp/openclaw', { recursive: true }); const config={gateway:{port:parseInt(process.env.PORT||7860, 10),bind:'0.0.0.0',auth:{token:'growthops'}},channels:{telegram:{enabled:true,botToken:(process.env.TELEGRAM_BOT_TOKEN||'').trim()}},models:{providers:{google:{apiKey:(process.env.GEMINI_API_KEY||'').trim(),baseUrl:'https://generativelanguage.googleapis.com',models:[{id:'gemini-2.5-pro',name:'Gemini 2.5 Pro'}]}}}}; fs.writeFileSync('/tmp/openclaw/openclaw.json', JSON.stringify(config));\" && OPENCLAW_CONFIG_PATH=/tmp/openclaw/openclaw.json openclaw gateway run --allow-unconfigured"
   },
   "dependencies": {
     "openclaw": "latest"
