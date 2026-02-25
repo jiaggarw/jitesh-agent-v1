@@ -2,7 +2,7 @@
   "name": "jitesh-agent",
   "version": "1.0.0",
   "scripts": {
-    "start": "openclaw gateway run --allow-unconfigured"
+    "start": "node -e \"const fs=require('fs'); const config={gateway:{port:process.env.PORT||7860,bind:'0.0.0.0',auth:{token:'growthops'}},channels:{telegram:{enabled:true,botToken:(process.env.TELEGRAM_BOT_TOKEN||'').trim(),authorizedUsers:[parseInt((process.env.MY_TELEGRAM_ID||'0').trim(), 10)]}},models:{providers:{google:{apiKey:(process.env.GEMINI_API_KEY||'').trim(),baseUrl:'https://generativelanguage.googleapis.com',models:[{id:'gemini-2.5-pro-exp-02-05',name:'Gemini 2.5 Pro'}]}}}}; fs.writeFileSync('/tmp/openclaw/openclaw.json', JSON.stringify(config));\" && node --max-old-space-size=800 /usr/local/bin/openclaw gateway run --allow-unconfigured"
   },
   "dependencies": {
     "openclaw": "latest"
