@@ -1,0 +1,10 @@
+{
+  "name": "jitesh-agent",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "openclaw gateway run --allow-unconfigured"
+  },
+  "dependencies": {
+    "openclaw": "latest"
+  }
+}
